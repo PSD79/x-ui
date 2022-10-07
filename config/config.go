@@ -46,5 +46,5 @@ func IsDebug() bool {
 }
 
 func GetDBPath() string {
-	return fmt.Sprintf("/etc/%s/%s.db", GetName(), GetName())
+	return fmt.Sprintf("user:pass@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4")
 }
