@@ -46,5 +46,5 @@ func IsDebug() bool {
 }
 
 func GetDBPath() string {
-	return fmt.Sprintf("proxy:pouria13791379@tcp(178.22.121.12:3306)/dbname?charset=utf8mb4")
+	return fmt.Sprintf("proxy:pouria13791379@tcp(178.22.121.12:3306)/proxies?charset=utf8mb4")
 }
