@@ -76,17 +76,6 @@ func (j *StatsNotifyJob) Run() {
 		logger.Warning("StatsNotifyJob run failed:", err)
 		return
 	}
-	//NOTE:If there no any sessions here,need to notify here
-	//TODO:分节点推送,自动转化格式
-	for _, inbound := range inbouds {
-		info += fmt.Sprintf("node name:%s\r\nport:%d\r\nUpstream traffic↑:%s\r\nDownlink traffic↓:%s\r\ntotal flow:%s\r\n", inbound.Remark, inbound.Port, common.FormatTraffic(inbound.Up), common.FormatTraffic(inbound.Down), common.FormatTraffic((inbound.Up + inbound.Down)))
-		if inbound.ExpiryTime == 0 {
-			info += fmt.Sprintf("Expiration Date: Indefinite\r\n \r\n")
-		} else {
-			info += fmt.Sprintf("Expire date:%s\r\n \r\n", time.Unix((inbound.ExpiryTime/1000), 0).Format("2006-01-02 15:04:05"))
-		}
-	}
-	j.SendMsgToTgbot(info)
 }
 
 func (j *StatsNotifyJob) UserLoginNotify(username string, ip string, time string, status LoginStatus) {
@@ -101,13 +90,4 @@ func (j *StatsNotifyJob) UserLoginNotify(username string, ip string, time string
 		fmt.Println("get hostname error:", err)
 		return
 	}
-	if status == LoginSuccess {
-		msg = fmt.Sprintf("Panel login successful reminder\r\nhost name:%s\r\n", name)
-	} else if status == LoginFail {
-		msg = fmt.Sprintf("Panel login failure reminder\r\nhostname:%s\r\n", name)
-	}
-	msg += fmt.Sprintf("Time:%s\r\n", time)
-	msg += fmt.Sprintf("User:%s\r\n", username)
-	msg += fmt.Sprintf("IP:%s\r\n", ip)
-	j.SendMsgToTgbot(msg)
 }
