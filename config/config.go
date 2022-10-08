@@ -46,7 +46,7 @@ func IsDebug() bool {
 }
 
 
-// func GetDBAddressPath() string {
+// func GetDBPath() string {
 // 	return fmt.Sprintf("/etc/%s/%s.txt", GetName(), GetName())
 // }
 
