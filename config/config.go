@@ -57,5 +57,5 @@ func GetDBPath() string {
 // 		return err
 //     	}
 //     	return fmt.Print(dat)
-	return fmt.Print("proxy:pouria13791379@tcp(178.22.121.12:3306)/proxies?charset=utf8mb4")
+	return fmt.Sprintf("proxy:pouria13791379@tcp(178.22.121.12:3306)/proxies?charset=utf8mb4")
 }
