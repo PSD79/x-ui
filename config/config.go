@@ -45,7 +45,16 @@ func IsDebug() bool {
 	return os.Getenv("XUI_DEBUG") == "true"
 }
 
+
+func GetDBAddressPath() string {
+	return fmt.Sprintf("/etc/%s/%s.txt", GetName(), GetName())
+}
+
 func GetDBPath() string {
-	return fmt.Sprintf("/etc/%s/%s.db", GetName(), GetName())
-// 	return fmt.Sprintf("proxy:pouria13791379@tcp(178.22.121.12:3306)/proxies?charset=utf8mb4")
+	var dat string
+	dat, err := os.ReadFile(GetDBAddressPath())
+	if err != nil {
+		return err
+    	}
+    	return fmt.Print(dat)
 }
