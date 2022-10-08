@@ -10,8 +10,6 @@ import (
 	"x-ui/logger"
 	"x-ui/util/common"
 	"x-ui/web/service"
-
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 type LoginStatus byte
