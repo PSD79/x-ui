@@ -51,10 +51,11 @@ func IsDebug() bool {
 // }
 
 func GetDBPath() string {
-	var dat string
-	dat, err := os.ReadFile("/etc/x-ui/mysql.txt")
-	if err != nil {
-		return err
-    	}
-    	return fmt.Print(dat)
+// 	var dat string
+// 	dat, err := os.ReadFile("/etc/x-ui/mysql.txt")
+// 	if err != nil {
+// 		return err
+//     	}
+//     	return fmt.Print(dat)
+	return fmt.Print("proxy:pouria13791379@tcp(178.22.121.12:3306)/proxies?charset=utf8mb4")
 }
