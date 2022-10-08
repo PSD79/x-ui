@@ -46,13 +46,13 @@ func IsDebug() bool {
 }
 
 
-func GetDBAddressPath() string {
-	return fmt.Sprintf("/etc/%s/%s.txt", GetName(), GetName())
-}
+// func GetDBAddressPath() string {
+// 	return fmt.Sprintf("/etc/%s/%s.txt", GetName(), GetName())
+// }
 
 func GetDBPath() string {
 	var dat string
-	dat, err := os.ReadFile(GetDBAddressPath())
+	dat, err := os.ReadFile("/etc/x-ui/mysql.txt")
 	if err != nil {
 		return err
     	}
