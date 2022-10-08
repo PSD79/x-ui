@@ -4,11 +4,7 @@ import (
 	"fmt"
 	"net"
 	"os"
-
-	"time"
-
 	"x-ui/logger"
-	"x-ui/util/common"
 	"x-ui/web/service"
 )
 
@@ -69,25 +65,11 @@ func (j *StatsNotifyJob) Run() {
 		}
 	}
 	info += fmt.Sprintf("IP address:%s\r\n \r\n", ip)
-
-	//get traffic
-	inbouds, err := j.inboundService.GetAllInbounds()
-	if err != nil {
-		logger.Warning("StatsNotifyJob run failed:", err)
-		return
-	}
 }
 
 func (j *StatsNotifyJob) UserLoginNotify(username string, ip string, time string, status LoginStatus) {
 	if username == "" || ip == "" || time == "" {
 		logger.Warning("UserLoginNotify failed,invalid info")
-		return
-	}
-	var msg string
-	//get hostname
-	name, err := os.Hostname()
-	if err != nil {
-		fmt.Println("get hostname error:", err)
 		return
 	}
 }
